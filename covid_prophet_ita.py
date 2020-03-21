@@ -24,7 +24,7 @@ tot_casi_prophet.columns = ['ds', 'y']
 
 model_tot_casi = Prophet(interval_width=0.99)
 model_tot_casi.fit(tot_casi_prophet)
-future_tot_casi = model_tot_casi.make_future_dataframe(periods=10)
+future_tot_casi = model_tot_casi.make_future_dataframe(periods=30)
 forecast_tot_casi = model_tot_casi.predict(future_tot_casi)
 
 #print(forecast_tot_casi.tail())
@@ -51,7 +51,7 @@ plt.plot(real_y, label='Confirmed', color='orange')
 plt.plot(forecast_y, label='Prediction', color='blue')
 plt.plot(forecast_y_l, label='Prediction lower', color='green')
 plt.plot(forecast_y_u, label='Predicition upper', color='red')
-plt.title("Forecast Total Cases")
+plt.title("Forecast of total cases")
 plt.legend()
 plt.show()
 
@@ -62,7 +62,7 @@ death_prophet.columns = ['ds', 'y']
 
 model_death = Prophet(interval_width=0.99)
 model_death.fit(death_prophet)
-future_death = model_death.make_future_dataframe(periods=10)
+future_death = model_death.make_future_dataframe(periods=30)
 forecast_death = model_death.predict(future_death)
 
 forecast_y = []
@@ -87,7 +87,7 @@ plt.plot(real_y, label='Confirmed', color='orange')
 plt.plot(forecast_y, label='Prediction', color='blue')
 plt.plot(forecast_y_l, label='Prediction lower', color='green')
 plt.plot(forecast_y_u, label='Predicition upper', color='red')
-plt.title("Forecast Death")
+plt.title("Forecast number of deaths")
 plt.legend()
 plt.show()
 
@@ -98,7 +98,7 @@ intensiva_prophet.columns = ['ds', 'y']
 
 model_intensiva = Prophet(interval_width=0.99)
 model_intensiva.fit(intensiva_prophet)
-future_intensiva = model_intensiva.make_future_dataframe(periods=10)
+future_intensiva = model_intensiva.make_future_dataframe(periods=30)
 forecast_intensiva = model_intensiva.predict(future_intensiva)
 
 forecast_y = []
@@ -123,10 +123,6 @@ plt.plot(real_y, label='Confirmed', color='orange')
 plt.plot(forecast_y, label='Prediction', color='blue')
 plt.plot(forecast_y_l, label='Prediction lower', color='green')
 plt.plot(forecast_y_u, label='Predicition upper', color='red')
-plt.title("Forecast Intensive Therapy")
+plt.title("Intensive care forecast")
 plt.legend()
 plt.show()
-
-
-
-
